@@ -21,24 +21,40 @@ CREATE TABLE <table> (
   col1 VARCHAR(10) NOT NULL,
   col2 INT         NOT NULL,
   PRIMARY KEY (col1)
-)
+);
 
 -- create table with a single column primary key constraint
 CREATE TABLE <table> (
   col1 INT         NOT NULL PRIMARY KEY,
   col2 VARCHAR(10) NOT NULL
-)
+);
 
 -- create table with auto-incrementing primary key constraint
 CREATE TABLE <table> (
   col1 INT         NOT NULL AUTO_INCREMENT,
   col2 VARCHAR(10) NOT NULL,
   PRIMARY KEY (col1)
-)
+);
 
 -- create table with primary key named constraint
 CREATE TABLE <table> (
   col1 VARCHAR(10) NOT NULL,
   col2 INT         NOT NULL,
   CONSTRANT PK_table PRIMARY_KEY (col1, col2)
-)
+);
+
+-- create table with a foreign key
+CREATE TABLE <table1> (
+  col1 VARCHAR(10) NOT NULL,
+  col2 INT         NOT NULL,
+  FOREIGN_KEY(col2)
+    REFERENCES <table2>
+);
+
+-- create table with a foreign key as named constraint
+CREATE TABLE <table1> (
+  col1 VARCHAR(10) NOT NULL,
+  col2 INT         NOT NULL,
+  CONSTRAINT FK_col2_fkid FOREIGN KEY (col2)
+    REFERENCES <table2>(fkid)
+);

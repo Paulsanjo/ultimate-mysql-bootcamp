@@ -47,8 +47,7 @@ CREATE TABLE <table> (
 CREATE TABLE <table1> (
   col1 VARCHAR(10) NOT NULL,
   col2 INT         NOT NULL,
-  FOREIGN_KEY(col2)
-    REFERENCES <table2>
+  FOREIGN_KEY(col2) REFERENCES <table2>(fkid)
 );
 
 -- create table with a foreign key as named constraint
